@@ -1,7 +1,3 @@
-// MainPage.js
-
-// This script houses the logic for the main application page
-
 import React from "react";
 
 const MainPage = () => {
