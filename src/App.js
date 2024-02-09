@@ -1,10 +1,12 @@
 // component imports
-import MainPage from "./components/MainPage/MainPage";
+import Header from "./components/Header";
+import LocationSearch from "./components/LocationSearch";
 
 function App() {
   return (
     <div>
-      <MainPage />
+      <Header />
+      <LocationSearch />
     </div>
   );
 }
