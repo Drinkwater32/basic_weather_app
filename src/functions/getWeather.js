@@ -1,20 +1,20 @@
-const apiKey = process.env.your_api_key_here;
+import axios from 'axios';
 
 async function getWeather(city) {
-  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+
+  // Access backend to use API with my API key
+  const options = {
+    method: 'GET',
+    url: 'http://localhost:8000/getWeather?city=' + city
+  };
 
   try {
-    const response = await fetch(apiUrl);
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
-    const data = await response.json();
-    console.log("example weather data");
-    console.log(data);
-    return data;
+    const response = await axios(options);
+    console.log(response.data);
+    return response.data;
   } catch (error) {
-    console.error("There was a problem with your fetch operation:", error);
-    return null;
+    console.error(error);
+    throw error; 
   }
 }
 
