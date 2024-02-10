@@ -1,4 +1,4 @@
-const apiKey = "YOUR_API_KEY";
+const apiKey = process.env.your_api_key_here;
 
 async function getWeather(city) {
   const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
