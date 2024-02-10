@@ -14,4 +14,9 @@ info about getting api key, check out https://home.openweathermap.org/
 
 info about creating a mini back end
 
+in package.json scripts:
+
+    "start:backend": "nodemon backend.js",
+    "start:frontend": "react-scripts start",
+
 I used this video for guidance: https://www.youtube.com/watch?v=FcwfjMebjTU
