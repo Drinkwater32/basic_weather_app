@@ -1,9 +1,9 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import LocationSearch from "../components/LocationSearch";
-import getWeather from "../functions/getWeather";
+import getWeather from "../utils/getWeather";
 
 // Mock the getWeather function
-jest.mock("../functions/getWeather");
+jest.mock("../utils/getWeather");
 
 describe("Scraping Weather", () => {
   test("calls the API with correct input when the search button is clicked", async () => {

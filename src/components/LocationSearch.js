@@ -6,7 +6,7 @@
 import React, { useState } from "react";
 
 // Function Imports
-import getWeather from "../functions/getWeather";
+import getWeather from "../utils/getWeather";
 
 const LocationSearch = () => {
   // Define city var and set up for its change
