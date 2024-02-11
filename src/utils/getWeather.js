@@ -1,11 +1,9 @@
-import axios from 'axios';
-
+const axios = require("axios");
 async function getWeather(city) {
-
   // Access backend to use API with my API key
   const options = {
-    method: 'GET',
-    url: 'http://localhost:8000/getWeather?city=' + city
+    method: "GET",
+    url: "http://localhost:8000/getWeather?city=" + city,
   };
 
   try {
@@ -14,7 +12,7 @@ async function getWeather(city) {
     return response.data;
   } catch (error) {
     console.error(error);
-    throw error; 
+    throw error;
   }
 }
 

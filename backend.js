@@ -18,7 +18,7 @@ const backend = express();
 backend.use(cors());
 
 // Proof of concept for backend working (visit localhost port defined above)
-backend.get("/", (req, res) => {
+backend.get("/", (res) => {
   res.json("welcome to the backend! :)");
 });
 

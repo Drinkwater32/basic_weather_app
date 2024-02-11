@@ -1,12 +1,16 @@
 // Header.js
-import React from "react";
+import { AppBar, Box, Toolbar, Typography } from "@mui/material";
 
-const Header = () => {
+export default function ButtonAppBar() {
   return (
-    <header>
-      <h1>Welcome to My Weather App</h1>
-    </header>
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar position="static">
+        <Toolbar>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            Welcome to Lee's Weather App
+          </Typography>
+        </Toolbar>
+      </AppBar>
+    </Box>
   );
-};
-
-export default Header;
+}

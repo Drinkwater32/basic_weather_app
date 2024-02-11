@@ -8,7 +8,7 @@ import React, { useState } from "react";
 // Function Imports
 import getWeather from "../utils/getWeather";
 
-const LocationSearch = () => {
+const SearchForm = () => {
   // Define city var and set up for its change
   const [city, setCity] = useState("");
 
@@ -39,4 +39,4 @@ const LocationSearch = () => {
   );
 };
 
-export default LocationSearch;
+export default SearchForm;
