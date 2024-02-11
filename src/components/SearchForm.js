@@ -1,15 +1,10 @@
-// LocationSearch.js
-
-// Search area for weather information
-
-// Module Imports
 import React, { useState } from "react";
-
-// Function Imports
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import Grid from "@mui/material/Grid";
 import getWeather from "../utils/getWeather";
 
 const SearchForm = () => {
-  // Define city var and set up for its change
   const [city, setCity] = useState("");
 
   const handleCityChange = (e) => {
@@ -22,20 +17,35 @@ const SearchForm = () => {
   };
 
   return (
-    <section>
-      <h2>Search for Weather</h2>
-      <form onSubmit={handleWeatherSearch}>
-        <label htmlFor="location">Location:</label>
-        <input
-          type="text"
-          id="location"
-          name="location"
-          value={city}
-          onChange={handleCityChange}
-        />
-        <button type="submit">Search</button>
-      </form>
-    </section>
+    <form onSubmit={handleWeatherSearch}>
+      <Grid container spacing={2} alignItems="center">
+        <Grid item xs={9}>
+          <TextField
+            fullWidth
+            id="location"
+            label="Search for a City"
+            variant="filled"
+            value={city}
+            onChange={handleCityChange}
+            InputProps={{
+              style: {
+                backgroundColor: "rgba(255, 255, 255, 0.8)",
+                borderRadius: "15px",
+              },
+            }}
+          />
+        </Grid>
+        <Grid item xs={3}>
+          <Button
+            type="submit"
+            variant="contained"
+            style={{ backgroundColor: "#1976d2", color: "#ffffff" }}
+          >
+            Search
+          </Button>
+        </Grid>
+      </Grid>
+    </form>
   );
 };
 

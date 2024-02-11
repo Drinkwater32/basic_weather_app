@@ -1,4 +1,4 @@
-const axios = require("axios");
+import axios from "axios";
 async function getWeather(city) {
   // Access backend to use API with my API key
   const options = {
