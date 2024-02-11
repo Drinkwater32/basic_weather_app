@@ -12,8 +12,15 @@ const SearchForm = () => {
   };
 
   const handleWeatherSearch = (e) => {
+    // prevent default search
     e.preventDefault();
-    getWeather(city);
+
+    // Call API to get weather from the back end
+    const weatherResults = getWeather(city);
+
+    //console.logging to take a look at the sorts of reponses I can get back
+    console.log("here are the results I can take a peek at:");
+    console.log(weatherResults);
   };
 
   return (
