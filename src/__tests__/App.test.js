@@ -17,7 +17,9 @@ describe("App Component", () => {
   // Test for location input rendering (placeholder test)
   test("renders a location input", () => {
     render(<App />);
-    const locationInput = screen.getByText(/location/i);
+    const locationInput = screen.getByRole("textbox", {
+      name: "Search for a City",
+    });
     expect(locationInput).toBeInTheDocument();
   });
 });
