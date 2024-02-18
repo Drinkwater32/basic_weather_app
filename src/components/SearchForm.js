@@ -11,16 +11,20 @@ const SearchForm = () => {
     setCity(e.target.value);
   };
 
-  const handleWeatherSearch = (e) => {
+  const handleWeatherSearch = async (e) => {
     // prevent default search
     e.preventDefault();
 
-    // Call API to get weather from the back end
-    const weatherResults = getWeather(city);
-
-    //console.logging to take a look at the sorts of reponses I can get back
-    console.log("here are the results I can take a peek at:");
-    console.log(weatherResults);
+    try {
+      // Call API to get weather from the backend
+      const weatherResults = await getWeather(city);
+      console.log("Weather Results:");
+      console.log(weatherResults);
+    } catch (error) {
+      console.log("searchForm.js error:");
+      console.error(error);
+      console.log("end searchform.js error");
+    }
   };
 
   return (
