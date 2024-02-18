@@ -18,35 +18,29 @@ const backend = express();
 backend.use(cors());
 
 // Proof of concept for backend working (visit localhost port defined above)
-backend.get("/", (res) => {
+backend.get("/", (req, res) => {
   res.json("welcome to the backend! :)");
 });
 
 // API Call for getWeather
-backend.get("/getWeather", (req, res) => {
-  const city = req.query.city;
-  if (!city) {
-    return res.status(400).json({ error: "no city" });
+backend.get("/getWeather", async (req, res) => {
+  try {
+    const city = req.query.city;
+    if (!city) {
+      return res.status(400).json({ error: "no city provided" });
+    }
+
+    const options = {
+      method: "GET",
+      url: `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_OPENWEATHER_API_KEY}`,
+    };
+
+    // Request Response and handle any errors
+    const response = await axios.request(options);
+    res.json(response.data);
+  } catch (error) {
+    res.status(500).json({ error: "internal server error" });
   }
-
-  const options = {
-    method: "GET",
-    url:
-      "https://api.openweathermap.org/data/2.5/weather?q=" +
-      city +
-      "&appid=" +
-      process.env.REACT_APP_OPENWEATHER_API_KEY, // Add your own .env file to your root folder, REACT_APP_OPENWEATHER_API_KEY=YOURKEYHERE (no quotes)
-  };
-
-  // Request Response and handle any errors
-  axios
-    .request(options)
-    .then((response) => {
-      res.json(response.data);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
 });
 
 // Spin up backend with confirmation of where it's running
