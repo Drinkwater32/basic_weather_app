@@ -6,20 +6,7 @@ import ResultsDisplay from "./components/ResultsDisplay";
 import { Grid } from "@mui/material";
 
 function App() {
-  const [searchResult, setSearchResult] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
-
-  const handleSearch = async (searchQuery) => {
-    setIsLoading(true);
-    try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-
-      setSearchResult(searchQuery.toUpperCase());
-    } catch (error) {
-      setSearchResult(null);
-    }
-    setIsLoading(false);
-  };
+  const [searchResults, setSearchResults] = useState(null);
 
   return (
     <div
@@ -37,13 +24,13 @@ function App() {
       <div style={{ marginLeft: "120px", marginTop: "30px" }}>
         <Grid container style={{ height: "calc(100% - 64px)" }} spacing={2}>
           <Grid item xs={12} sm={4} style={{ padding: "20px" }}>
-            <SearchForm onSearch={handleSearch} />
+            <SearchForm onSearch={setSearchResults} />
           </Grid>
           <Grid item xs={12} sm={8} style={{ padding: "20px" }}>
-            <TextDisplay />
+            <TextDisplay searchResults={searchResults} />
           </Grid>
-          <Grid item xs={12} style={{ padding: "20px" }}>
-            <ResultsDisplay searchResult={searchResult} />
+          <Grid item xs={12} style={{ padding: "20px", display: "flex", justifyContent: "center" }}>
+            <ResultsDisplay searchResults={searchResults} />
           </Grid>
         </Grid>
       </div>
