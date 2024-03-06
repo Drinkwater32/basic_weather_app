@@ -7,11 +7,11 @@ async function getWeather(city) {
   };
 
   try {
-    const response = await axios(options);
+    const weatherData = await axios(options);
     console.log("here is my response");
-    console.log(response);
-    console.log(response.data);
-    return response.data;
+    console.log(weatherData);
+    console.log(weatherData.data);
+    return weatherData.data;
   } catch (error) {
     console.log("getWeather.js error:");
     console.error(error);
