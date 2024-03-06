@@ -4,7 +4,7 @@ import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import getWeather from "../utils/getWeather";
 
-const SearchForm = () => {
+const SearchForm = ({ onSearch }) => {
   const [city, setCity] = useState("");
 
   const handleCityChange = (e) => {
@@ -18,12 +18,10 @@ const SearchForm = () => {
     try {
       // Call API to get weather from the backend
       const weatherResults = await getWeather(city);
-      console.log("Weather Results:");
       console.log(weatherResults);
+      onSearch(weatherResults);
     } catch (error) {
-      console.log("searchForm.js error:");
       console.error(error);
-      console.log("end searchform.js error");
     }
   };
 
