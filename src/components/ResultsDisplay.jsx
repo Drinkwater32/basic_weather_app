@@ -1,8 +1,3 @@
-// ResultsDisplay.js
-
-// What to render with a successful search
-
-// Utility Imports
 import { tempDisplay } from "../utils/tempDisplay";
 
 const ResultsDisplay = ({ searchResults }) => {
@@ -16,7 +11,6 @@ const low = searchResults ? tempDisplay(searchResults.main.temp_min) : null
     <div>
       {searchResults ? (
     <>
-    {/* Display weather information */}
     <p>Current Temp: {currentTemp}</p>
     <p>Feels like: {feelsLike}</p>
     <p>High Today: {high}</p>
