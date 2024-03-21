@@ -7,10 +7,10 @@ import { tempDisplay } from "../utils/tempDisplay";
 
 const ResultsDisplay = ({ searchResults }) => {
 
-const currentTemp = tempDisplay(searchResults.main.temp)
-const feelsLike = tempDisplay(searchResults.main.feels_like)
-const high = tempDisplay(searchResults.main.temp_max)
-const low = tempDisplay(searchResults.main.temp_min)
+const currentTemp = searchResults ? tempDisplay(searchResults.main.temp) : null
+const feelsLike = searchResults ? tempDisplay(searchResults.main.feels_like) : null
+const high = searchResults ? tempDisplay(searchResults.main.temp_max) : null
+const low = searchResults ? tempDisplay(searchResults.main.temp_min) : null
 
   return (
     <div>
