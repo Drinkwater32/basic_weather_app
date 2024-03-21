@@ -12,13 +12,10 @@ const SearchForm = ({ onSearch }) => {
   };
 
   const handleWeatherSearch = async (e) => {
-    // prevent default search
     e.preventDefault();
 
     try {
-      // Call API to get weather from the backend
       const weatherResults = await getWeather(city);
-      console.log(weatherResults);
       onSearch(weatherResults);
     } catch (error) {
       console.error(error);
