@@ -14,6 +14,8 @@ const ResultsDisplay = ({ searchResults }) => {
   const high = searchResults ? tempDisplay(searchResults.main.temp_max) : null;
   const low = searchResults ? tempDisplay(searchResults.main.temp_min) : null;
 
+  const cloudCoverage = searchResults ? searchResults.clouds.all : null;
+
   if (searchResults) {
     console.log(searchResults);
   }
@@ -57,9 +59,21 @@ const ResultsDisplay = ({ searchResults }) => {
               <Typography gutterBottom variant="h5" component="div">
                 Cloud Coverage
               </Typography>
-              <Typography variant="body2" color="text.secondary">
-                temp
-              </Typography>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  marginTop: "25px",
+                }}
+              >
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  fontSize="50px"
+                >
+                  {cloudCoverage + "%"}
+                </Typography>
+              </div>
             </CardContent>
           </Card>
           <Card sx={{ maxWidth: 345 }}>
